@@ -50,8 +50,10 @@ public class PostController {
     //http://localhost:8083/api/posts?pageNo=0&pageSize=3
     @GetMapping
     public List<PostDto> getAllPosts(@RequestParam(name = "pageNo",defaultValue = "0",required = false)int pageNo,
-                                     @RequestParam(name = "pageSize",defaultValue = "3",required = false)int pageSize){
-        List<PostDto> dto = postService.getAllPosts(pageNo,pageSize);
+                                     @RequestParam(name = "pageSize",defaultValue = "3",required = false)int pageSize,
+                                     @RequestParam(name = "sortBy",defaultValue = "id",required = false)String sortBy,
+                                     @RequestParam(name = "sortDir",defaultValue = "id",required = false)String sorDir){
+        List<PostDto> dto = postService.getAllPosts(pageNo,pageSize,sortBy,sorDir);
         return  dto;
     }
 }
