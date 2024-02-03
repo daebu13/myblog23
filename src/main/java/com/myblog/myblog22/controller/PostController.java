@@ -6,6 +6,7 @@ import com.myblog.myblog22.service.PostService;
 import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,7 +36,7 @@ public class PostController {
         this.postService = postService;
     }
 
-
+   // @PreAuthorize("hasRole('ADMIN')") // means this url  can be accessed by admin only 
     @PostMapping
     public  ResponseEntity<PostDto> createPosts(@RequestBody PostDto dto){
         PostDto createPost = postService.createPosts(dto);

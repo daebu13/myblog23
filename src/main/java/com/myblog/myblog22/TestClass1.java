@@ -4,10 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import static org.hibernate.internal.util.collections.ArrayHelper.forEach;
-import static org.hibernate.internal.util.collections.ArrayHelper.indexOf;
 
 public class TestClass1 {
     public static void main(String[] args) {
