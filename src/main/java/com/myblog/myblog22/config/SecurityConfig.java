@@ -29,6 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/api/**").permitAll()  //this line means Get urls can be accessible by all
                 .antMatchers(HttpMethod.POST,"/api/posts").hasRole("ADMIN") // this means that this post url  can be accessible by only admin
+                .antMatchers(HttpMethod.POST,"/api/auth/**").permitAll()
                 // we can also use   @PreAuthorize("hasRole('ADMIN')") ANNOTATION in post controller for same cause
                 .anyRequest()
                 .authenticated()
