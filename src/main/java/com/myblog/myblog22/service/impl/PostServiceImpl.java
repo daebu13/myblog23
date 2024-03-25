@@ -28,24 +28,10 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostDto createPosts(PostDto dto) {
-
         Post post = mapToEntity(dto);
-//        Post post = new Post();
-//        post.setTitle(dto.getTitle());
-//        post.setDescription(dto.getDescription());
-//        post.setContent(dto.getContent());
-
         Post savedPost= postRepo.save(post);
-
         PostDto postDto = mapToDto(savedPost); // this function is the below code of taking data from post object to dto
         return  postDto;
-        
-
-//        PostDto postDto = new PostDto();
-//        postDto.setTitle(post.getTitle());
-//        postDto.setDescription(post.getDescription());
-//        postDto.setContent(post.getContent());
-//        return postDto;
     }
 
     @Override
@@ -74,15 +60,11 @@ public class PostServiceImpl implements PostService {
     
    PostDto mapToDto(Post post){
        PostDto postDto = modelMapper.map(post, PostDto.class);// this line maps the object from entity to dto class,it is the
-       //simplifeid version of below code
-
        return postDto;
    }
    
    Post mapToEntity(PostDto dto){
        Post post = modelMapper.map(dto, Post.class);// this line maps the object from dto to entity class,it is the
-       //simplifeid version of below code
-
        return post;
    }
 
